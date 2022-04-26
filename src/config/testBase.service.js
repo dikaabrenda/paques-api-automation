@@ -3,6 +3,7 @@ import qs from "qs";
 import dotenv, { config } from "dotenv"
 import { LocalStorage } from "node-localstorage";
 import console from "../helper/console"
+import https from "https"
 
 dotenv.config();
 global.localStorage = new LocalStorage("./storage");
@@ -28,9 +29,17 @@ const testBase = axios.create({
 
 testBase.interceptors.request.use((config) => {
     let token = localStorage.getItem('token')
+    const agent = new https.Agent({
+        rejectUnauthorized: false
+    })
+
     if (token) {
-        config.headers.Authorization = `Bearer ${token}`
+        config.headers.Authorization = `${token}`
     }
+    if (agent) {
+        config.httpsAgent = agent
+    }
+    
     return config;
 },
     err => {
@@ -38,11 +47,11 @@ testBase.interceptors.request.use((config) => {
     })
 
 testBase.interceptors.response.use(
-    res => {
+    (res) => {
     console(res)
     return res
     }, 
-    err => Promise.reject(err.message)  
+    (err) => Promise.reject(err.message)  
 );
 
 export default testBase;
