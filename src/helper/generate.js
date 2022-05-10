@@ -1,3 +1,3 @@
-const number = Math.floor(Math.random() * 10001)
+const number = Math.floor(Math.random() * 10001);
 
-export default number
+export default number;
