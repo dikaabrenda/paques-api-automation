@@ -1,57 +1,54 @@
-import axios from "axios";
-import qs from "qs";
-import dotenv, { config } from "dotenv"
-import { LocalStorage } from "node-localstorage";
-import console from "../helper/console"
-import https from "https"
+/* eslint-disable no-param-reassign */
+import axios from 'axios';
+import qs from 'qs';
+import dotenv from 'dotenv';
+import { LocalStorage } from 'node-localstorage';
+import https from 'https';
+import console from '../helper/console';
 
 dotenv.config();
-global.localStorage = new LocalStorage("./storage");
+global.localStorage = new LocalStorage('./storage');
+
+const token = localStorage.getItem('token');
 
 const testBase = axios.create({
-    baseURL: process.env.BASEURL,
-    headers: {
-        Accept: "application/json",
-        ContentType: "application/json"
-    },
+  baseURL: process.env.BASEURL,
+  headers: {
+    Accept: 'application/json',
+    ContentType: 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    Authorization: `${token}`,
+  },
 
-    transformRequest: [
-        function (data) {
-            return qs.stringify(data)
-        }
-    ],
+  transformRequest: [
+    (data) => qs.stringify(data),
+  ],
 
-    validateStatus:
-        function () {
-            return true;
-        }
+  validateStatus() {
+    return true;
+  },
 });
 
-testBase.interceptors.request.use((config) => {
-    let token = localStorage.getItem('token')
+testBase.interceptors.request.use(
+  (config) => {
     const agent = new https.Agent({
-        rejectUnauthorized: false
-    })
+      rejectUnauthorized: false,
+    });
 
-    if (token) {
-        config.headers.Authorization = `${token}`
-    }
     if (agent) {
-        config.httpsAgent = agent
+      config.httpsAgent = agent;
     }
-    
     return config;
-},
-    err => {
-        return Promise.reject(err)
-    })
+  },
+  (err) => Promise.reject(err),
+);
 
 testBase.interceptors.response.use(
-    (res) => {
-    console(res)
-    return res
-    }, 
-    (err) => Promise.reject(err.message)  
+  (res) => {
+    console(res);
+    return res;
+  },
+  (err) => Promise.reject(err.message),
 );
 
 export default testBase;
