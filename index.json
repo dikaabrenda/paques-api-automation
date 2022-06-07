@@ -1,0 +1,412 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-07T04:45:45.552Z",
+    "end": "2022-06-07T04:45:48.285Z",
+    "duration": 2700,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c4e55639-9b95-40bb-bc1f-71026ee8db8a",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1c88bcbc-233a-4a7f-990a-ef0a2af42154",
+          "title": "as a user, i want to GET Capcha in PDS application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Client send a GET request \"/api/captcha\"",
+              "fullTitle": "as a user, i want to GET Capcha in PDS application Client send a GET request \"/api/captcha\"",
+              "timedOut": false,
+              "duration": 342,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await auth.GET();\nassert.equal(res.status, 200);\nexpect.JsonSchema(res, schema);\nlocalStorage.setItem('CapchaId', res.data.response.captcha_id);",
+              "err": {},
+              "uuid": "834aee69-a32b-4b88-b503-c03d2c0c0634",
+              "parentUUID": "1c88bcbc-233a-4a7f-990a-ef0a2af42154",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "834aee69-a32b-4b88-b503-c03d2c0c0634"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 342,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "fe0f6541-3ccb-407c-bc15-4c29e835a304",
+          "title": "as a user, i want to logged in PDS Application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Client send a POST request \"/api/login\"",
+              "fullTitle": "as a user, i want to logged in PDS Application Client send a POST request \"/api/login\"",
+              "timedOut": false,
+              "duration": 165,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await auth.POST(data.Credentials);\nassert.equal(res.status, 200);\nlocalStorage.setItem('token', res.data.response.access_token)",
+              "err": {},
+              "uuid": "6649557a-263f-4bde-9ae5-52cf1840d9d3",
+              "parentUUID": "fe0f6541-3ccb-407c-bc15-4c29e835a304",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6649557a-263f-4bde-9ae5-52cf1840d9d3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 165,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "27a973d1-f243-496e-8b42-5f6db115be76",
+          "title": "as a client, i want to query in PDS Application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Client send a POST request \"/api/dataset/query\" using split _event",
+              "fullTitle": "as a client, i want to query in PDS Application Client send a POST request \"/api/dataset/query\" using split _event",
+              "timedOut": false,
+              "duration": 692,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await dataset.POST(data.QUERY_SPLIT_EVENT);\nconst prefix = await res.data.response.datasets.test2;\n  assert.equal(res.status, 200);\n  assert.equal(prefix.columns[1], 'NoPesanan');\n  assert.equal(prefix.columns[2], 'StatusPesanan');\n  assert.equal(prefix.columns[3], 'AlasanPembatalan');",
+              "err": {},
+              "uuid": "2fb128a4-b9cc-476d-88a7-2ceed6c31be1",
+              "parentUUID": "27a973d1-f243-496e-8b42-5f6db115be76",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Client send a POST request \"/api/dataset/query\" using tabular view",
+              "fullTitle": "as a client, i want to query in PDS Application Client send a POST request \"/api/dataset/query\" using tabular view",
+              "timedOut": false,
+              "duration": 674,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await dataset.POST(data.QUERY_TABULAR_VIEW)\nconst prefix = await res.data.response.datasets.data;\n  assert.equal(res.status, 200)\n  assert.equal(res.data.response.total.data, 50)\n  assert.equal(prefix.columns[0], 'NoPolisi')\n  assert.equal(prefix.columns[1], 'SalesEmail')\n  assert.equal(prefix.columns[2], 'CustomerEmail')\n  assert.equal(prefix.columns[3], 'CustomerName')\n  expect.JsonSchema(res, schema);",
+              "err": {},
+              "uuid": "c2fa43da-5b34-4a67-9a64-b1034fa42db0",
+              "parentUUID": "27a973d1-f243-496e-8b42-5f6db115be76",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Client send a POST request using a wrong query",
+              "fullTitle": "as a client, i want to query in PDS Application Client send a POST request using a wrong query",
+              "timedOut": false,
+              "duration": 107,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await dataset.POST(data.INVALID_QUERY);\n  assert.equal(res.status, 500);\n  assert.equal(res.data.status, 'error');\n  assert.equal(res.data.message, \"Paques query error. Msg: Error initiate pool. Err : line 1:53 no viable alternative at input 'search from file '/Data_Penjualan/data_penjualan.csv';'\"\n);",
+              "err": {},
+              "uuid": "fd52e628-729b-43bc-a31b-0ef4578fbd04",
+              "parentUUID": "27a973d1-f243-496e-8b42-5f6db115be76",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2fb128a4-b9cc-476d-88a7-2ceed6c31be1",
+            "c2fa43da-5b34-4a67-9a64-b1034fa42db0",
+            "fd52e628-729b-43bc-a31b-0ef4578fbd04"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1473,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "6220b22e-a0ad-4ffd-9fe8-b375f5b25c66",
+          "title": "as a users, i want to create new user in PDS Application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Client send a POST request \"/api/user/add\"",
+              "fullTitle": "as a users, i want to create new user in PDS Application Client send a POST request \"/api/user/add\"",
+              "timedOut": false,
+              "duration": 199,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await users.POST(data.CREATE_USERS)\n  .then((res) => {\n    assert.equal(res.status, 200);\n    assert.jsonSchema(res.data, schema.POST_USER)\n    localStorage.setItem('UserId', res.data.response.uuid);\n  })\n  .catch((err) => {\n    throw err;\n  });",
+              "err": {},
+              "uuid": "9cf91371-0e29-4248-bfc4-c2d99c60297d",
+              "parentUUID": "6220b22e-a0ad-4ffd-9fe8-b375f5b25c66",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Client send a POST request using user has already exist",
+              "fullTitle": "as a users, i want to create new user in PDS Application Client send a POST request using user has already exist",
+              "timedOut": false,
+              "duration": 84,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await users.POST(data.USERNAME_ALREADY_EXIST)\n  assert.equal(res.status, 500)\n  assert.equal(res.data.message, 'user_name already exists')",
+              "err": {},
+              "uuid": "10f6fb32-f260-49b5-8f9c-f92666166c74",
+              "parentUUID": "6220b22e-a0ad-4ffd-9fe8-b375f5b25c66",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9cf91371-0e29-4248-bfc4-c2d99c60297d",
+            "10f6fb32-f260-49b5-8f9c-f92666166c74"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 283,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "a6bba39c-b989-4e25-8cd1-6140139b9f36",
+          "title": "as a client, i want to get an user in PDS Application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Client send a GET request by Id \"/api/users/:id\"",
+              "fullTitle": "as a client, i want to get an user in PDS Application Client send a GET request by Id \"/api/users/:id\"",
+              "timedOut": false,
+              "duration": 80,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await users.GET()\n.then((res) => {\n    assert.equal(res.status, 200);\n    assert.equal(res.data.response.uuid, `${userId}`);\n    assert.equal(res.data.response.firstname, 'Dika')\n    assert.jsonSchema(res.data, schema.GET_USER)\n})\n.catch((err) => {\n    throw err\n})",
+              "err": {},
+              "uuid": "73130961-bb93-4620-807c-43f37c70840f",
+              "parentUUID": "a6bba39c-b989-4e25-8cd1-6140139b9f36",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Client send a GET request with unregistered id",
+              "fullTitle": "as a client, i want to get an user in PDS Application Client send a GET request with unregistered id",
+              "timedOut": false,
+              "duration": 82,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await users.GETWRONGID()\n.then((res) => {\n    assert.equal(res.status, 500);\n    assert.equal(res.data.message, 'record not found')\n})\n.catch((err) => {\n    throw err\n})",
+              "err": {},
+              "uuid": "4b311fe4-27db-459f-b762-613e3c707cd2",
+              "parentUUID": "a6bba39c-b989-4e25-8cd1-6140139b9f36",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "73130961-bb93-4620-807c-43f37c70840f",
+            "4b311fe4-27db-459f-b762-613e3c707cd2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 162,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "fb755239-8984-4f92-b33a-29cf85bf9760",
+          "title": "as a client, i want to update an user in PDS Application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "client send a PUT request \"api/user/:id\"",
+              "fullTitle": "as a client, i want to update an user in PDS Application client send a PUT request \"api/user/:id\"",
+              "timedOut": false,
+              "duration": 165,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await users.PUT(data.UPDATE_USERS)\n.then((res) => {\n    assert.equal(res.status, 200)\n})\n.catch((err) => {\n    throw err\n});",
+              "err": {},
+              "uuid": "fcc4e4c0-d8a6-45a7-bfdd-f16149978ac5",
+              "parentUUID": "fb755239-8984-4f92-b33a-29cf85bf9760",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fcc4e4c0-d8a6-45a7-bfdd-f16149978ac5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 165,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "0d825eb4-fbf4-41a3-b417-148213e6663a",
+          "title": "as a client, i want to delete user in PDS Application",
+          "fullFile": "/mnt/d/repo/paques_api/src/test/main.spec.js",
+          "file": "/src/test/main.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "client send a DELETE request \"/api/user/:id\"",
+              "fullTitle": "as a client, i want to delete user in PDS Application client send a DELETE request \"/api/user/:id\"",
+              "timedOut": false,
+              "duration": 110,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await users.DELETE()\n.then((res) => {\n    assert.equal(res.status, 200)\n    assert.equal(res.data.message, 'user deleted')\n})\n.catch((err) => {\n    throw err\n});",
+              "err": {},
+              "uuid": "802fae97-0331-4d55-8ab8-2db49fcfa609",
+              "parentUUID": "0d825eb4-fbf4-41a3-b417-148213e6663a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "802fae97-0331-4d55-8ab8-2db49fcfa609"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 110,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 180000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "html": "false"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
