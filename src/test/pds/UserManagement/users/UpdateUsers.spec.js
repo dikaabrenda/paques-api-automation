@@ -1,6 +1,6 @@
-import chai, {assert} from "chai";
-import users from "../../../../routes/users.api";
-import chaiJsonSchema from "chai-json-schema";
+import chai, {assert} from 'chai';
+import users from '../../../../routes/users.api';
+import chaiJsonSchema from 'chai-json-schema';
 import * as data from '../../../../data/users/UpdateUsers.data'
 
 chai.use(chaiJsonSchema);

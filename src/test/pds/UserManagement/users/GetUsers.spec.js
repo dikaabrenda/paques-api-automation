@@ -1,8 +1,8 @@
-import chai, { assert } from "chai";
+import chai, { assert } from 'chai';
 import { describe, it } from 'mocha';
 import users from '../../../../routes/users.api';
-import chaiJsonSchema from "chai-json-schema";
-import * as schema from "../../../../schema/pds/users/get.user.schema";
+import chaiJsonSchema from 'chai-json-schema';
+import * as schema from '../../../../schema/pds/users/get.user.schema';
 
 chai.use(chaiJsonSchema);
 let userId = localStorage.getItem('UserId')
