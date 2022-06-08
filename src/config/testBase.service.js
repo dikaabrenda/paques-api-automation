@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import axios from 'axios';
-import qs from 'qs';
 import dotenv from 'dotenv';
 import { LocalStorage } from 'node-localstorage';
 import https from 'https';
@@ -9,34 +8,33 @@ import console from '../helper/console';
 dotenv.config();
 global.localStorage = new LocalStorage('./storage');
 
-const token = localStorage.getItem('token');
-
 const testBase = axios.create({
   baseURL: process.env.BASEURL,
   headers: {
-    Accept: 'application/json',
-    ContentType: 'application/json',
+    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    Authorization: `${token}`,
   },
 
   transformRequest: [
-    (data) => qs.stringify(data),
+    (data) => JSON.stringify(data),
   ],
 
-  validateStatus() {
-    return true;
-  },
+  validateStatus:
+    () => true,
 });
 
 testBase.interceptors.request.use(
   (config) => {
+    const token = localStorage.getItem('token');
     const agent = new https.Agent({
       rejectUnauthorized: false,
     });
 
     if (agent) {
       config.httpsAgent = agent;
+    }
+    if (token) {
+      config.headers.Authorization = `${token}`;
     }
     return config;
   },

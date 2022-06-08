@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  chrome:
+    image: "cyp-dock-mocha-report"
+    command: "test:chrome"
+    volumes:
+      - ./cypress/videos:/paques-web-automation/cypress/videos
+      - ./cypress/reports:/paques-web-automation/cypress/reports
+
+  firefox:
+    image: "cyp-dock-mocha-report"
+    command: "test:firefox"
+    volumes:
+      - ./cypress/videos:/paques-web-automation/cypress/videos
+      - ./cypress/reports:/paques-web-automation/cypress/reports

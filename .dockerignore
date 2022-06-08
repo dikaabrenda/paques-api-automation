@@ -32,5 +32,3 @@ node_modules
 reports
 mochawesome-report
 .env
-public
-storage

@@ -1,8 +1,6 @@
-/* eslint-disable linebreak-style */
-
 import testBase from '../config/testBase.service';
 
-const path = '/api/dataset';
+const path = `/api/dataset/query`;
 
 const dataset = {
   POST: (data) => testBase.post(`${path}`, data),
