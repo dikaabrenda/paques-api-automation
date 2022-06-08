@@ -4,7 +4,7 @@
   "description": "Paques Automation API",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './src/test/main.spec.js' --recursive --reporter mochawesome --reporter-options html=false --timeout 180000 --es-module-specifier-resolution=node",
+    "test": "mocha './src/test/credentials' --recursive --reporter mochawesome --reporter-options html=false --timeout 180000 --es-module-specifier-resolution=node",
     "combine-report": "mochawesome-merge ./mochawesome-report/*.json > index.json",
     "generate-report": "marge ./index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html",
     "report": "npm run combine-report && npm run generate-report",
