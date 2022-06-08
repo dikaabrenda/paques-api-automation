@@ -1,62 +1,62 @@
 export const GET_USER = {
-  type: "object",
+  type: 'object',
   required: [
-      "status",
-      "code",
-      "response",
-      "message"
-    ],
+    'status',
+    'code',
+    'response',
+    'message',
+  ],
   properties: {
     status: {
-      type: "string",
+      type: 'string',
     },
     code: {
-      type: "number",
+      type: 'number',
     },
     response: {
-      type: "object",
+      type: 'object',
       required: [
-        "uuid",
-        "username",
-        "email",
-        "firstname",
-        "lastname",
-        "first_time_login",
-        "created_at",
-        "groups",
+        'uuid',
+        'username',
+        'email',
+        'firstname',
+        'lastname',
+        'first_time_login',
+        'created_at',
+        'groups',
       ],
       properties: {
         uuid: {
-          type: "string",
-          format: "uuid",
+          type: 'string',
+          format: 'uuid',
         },
         username: {
-          type: "string",
+          type: 'string',
         },
         email: {
-          type: "string",
+          type: 'string',
         },
         firstname: {
-          type: "string",
+          type: 'string',
         },
         lastname: {
-          type: "string",
+          type: 'string',
         },
         first_time_login: {
-          type: "boolean",
+          type: 'boolean',
           default: false,
         },
         created_at: {
-          type: "string",
+          type: 'string',
         },
         groups: {
-          type: "array",
+          type: 'array',
           uniqueItems: true,
         },
       },
     },
     message: {
-      type: "null",
+      type: 'null',
     },
   },
 };

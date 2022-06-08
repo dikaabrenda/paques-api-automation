@@ -2,7 +2,7 @@ import testBase from '../config/testBase.service';
 
 const path = `/api/user`;
 const pathId = localStorage.getItem('UserId');
-const wrongId = `601ce702-3c91-4519-9626-9f72370d82aa`
+const wrongId = '601ce702-3c91-4519-9626-9f72370d82aa';
 
 const users = {
   POST: (data) => testBase.post(`${path}/add`, data),

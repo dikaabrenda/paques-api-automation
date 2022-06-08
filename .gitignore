@@ -33,3 +33,4 @@ reports
 mochawesome-report
 .env
 public
+storage

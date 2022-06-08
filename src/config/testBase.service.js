@@ -11,25 +11,22 @@ global.localStorage = new LocalStorage('./storage');
 const testBase = axios.create({
   baseURL: process.env.BASEURL,
   headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
 
   transformRequest: [
-    (data) => {
-        return JSON.stringify(data)
-    }
+    (data) => JSON.stringify(data),
   ],
 
   validateStatus:
-    () => {
-        return true;
-    }
+    () => true,
 });
 
-testBase.interceptors.request.use((config) => {
-    let token = localStorage.getItem('token')
-    let agent = new https.Agent({
+testBase.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    const agent = new https.Agent({
       rejectUnauthorized: false,
     });
 

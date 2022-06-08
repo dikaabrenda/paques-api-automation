@@ -1,84 +1,84 @@
 export const QUERY_DATASET = {
-  $schema: "https://json-schema.org/draft-07/schema",
-  type: "object",
+  $schema: 'https://json-schema.org/draft-07/schema',
+  type: 'object',
   properties: {
     status: {
-      type: "string",
+      type: 'string',
     },
     code: {
-      type: "number",
+      type: 'number',
     },
     response: {
-      type: "object",
+      type: 'object',
       properties: {
         total: {
-          type: "object",
+          type: 'object',
           properties: {
             data: {
-              type: "number",
+              type: 'number',
             },
           },
         },
         quid: {
-          type: "object",
+          type: 'object',
           properties: {
             quid: {
-              type: "string",
+              type: 'string',
             },
             done: {
-              type: "boolean",
+              type: 'boolean',
             },
             elapsed: {
-              type: "number",
+              type: 'number',
             },
             createdDate: {
-              type: "string",
+              type: 'string',
             },
             updatedDate: {
-              type: "string",
+              type: 'string',
             },
             markDelete: {
-              type: "boolean",
+              type: 'boolean',
             },
             userQueryID: {
-              type: "number",
+              type: 'number',
             },
             source: {
-              type: "array",
+              type: 'array',
             },
             sourceRowCount: {
-              type: "object",
+              type: 'object',
               properties: {
                 data: {
-                  type: "number",
+                  type: 'number',
                 },
               },
             },
             state: {
-              type: "string",
+              type: 'string',
             },
             message: {
-              type: "string",
+              type: 'string',
             },
             rowtotal: {
-              type: "number",
+              type: 'number',
             },
           },
         },
         datasets: {
-          type: "object",
+          type: 'object',
           properties: {
             data: {
-              type: "object",
+              type: 'object',
               properties: {
                 columns: {
-                  type: "array",
+                  type: 'array',
                 },
                 rows: {
-                  type: "array",
+                  type: 'array',
                 },
                 source: {
-                  type: "string",
+                  type: 'string',
                 },
               },
             },
@@ -87,7 +87,7 @@ export const QUERY_DATASET = {
       },
     },
     message: {
-      type: "null",
+      type: 'null',
     },
   },
 };

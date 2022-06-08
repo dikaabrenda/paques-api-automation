@@ -1,56 +1,56 @@
 export const POST_USER = {
-  type: "object",
+  type: 'object',
   required: [
-      "status",
-      "code",
-      "response",
-      "message"],
+    'status',
+    'code',
+    'response',
+    'message'],
   properties: {
     status: {
-      type: "string",
+      type: 'string',
     },
     code: {
-      type: "number",
+      type: 'number',
     },
     response: {
-      type: "object",
+      type: 'object',
       required: [
-        "uuid",
-        "username",
-        "email",
-        "firstname",
-        "lastname",
-        "first_time_login",
-        "groups",
+        'uuid',
+        'username',
+        'email',
+        'firstname',
+        'lastname',
+        'first_time_login',
+        'groups',
       ],
       properties: {
         uuid: {
-          type: "string",
+          type: 'string',
         },
         username: {
-          type: "string",
+          type: 'string',
         },
         email: {
-          type: "string",
+          type: 'string',
         },
         firstname: {
-          type: "string",
+          type: 'string',
         },
         lastname: {
-          type: "string",
+          type: 'string',
         },
         first_time_login: {
-          type: "boolean",
-          default: false
+          type: 'boolean',
+          default: false,
         },
         groups: {
-          type: "array",
+          type: 'array',
           uniqueItems: true,
         },
       },
     },
     message: {
-      type: "null",
+      type: 'null',
     },
   },
 };
