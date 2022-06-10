@@ -23,6 +23,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Host
+      run: sudo echo "192.168.210.170 dev.paques.dev" | sudo tee -a /etc/hosts
+
     - name: npm install
       run: |
        npm install
