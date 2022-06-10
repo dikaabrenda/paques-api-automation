@@ -8,7 +8,7 @@ chai.use(chaiJsonSchema);
 const userId = localStorage.getItem('UserId');
 
 describe('as a client, i want to get an user in PDS Application', () => {
-  it('Client send a GET request by Id "/api/users/:id"', async () => {
+  it.only('Client send a GET request by Id "/api/users/:id"', async () => {
     await users.GET()
       .then((res) => {
         assert.equal(res.status, 200);

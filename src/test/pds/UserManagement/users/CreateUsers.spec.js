@@ -7,7 +7,7 @@ import * as schema from '../../../../schema/pds/users/post.user.schema';
 
 chai.use(chaiJsonSchema);
 
-describe('as a users, i want to create new user in PDS Application', () => {
+describe('as a client, i want to create new user in PDS Application', () => {
   it('Client send a POST request "/api/user/add"', async () => {
     await users.POST(data.CREATE_USERS)
       .then((res) => {
