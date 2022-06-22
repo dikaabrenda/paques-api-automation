@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Stash Report'){
             steps{
-                echo "stash report"
+                bat "npm run report"
             }
         }
     }
@@ -39,8 +39,8 @@ pipeline {
                 allowMissing: false, 
                 alwaysLinkToLastBuild: false, 
                 keepAll: false, 
-                reportDir: 'public', 
-                reportFiles: 'index.html', 
+                reportDir: '', 
+                reportFiles: 'public/index.html', 
                 reportName: 'Paques-API-Automation', 
                 reportTitles: ''
             ])
