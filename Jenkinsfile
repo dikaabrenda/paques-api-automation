@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Populate ENV'){
             steps{
-                bat "cp env\\env.sample .env"
+                bat "copy env\\env.sample .env"
             }
         }
         stage('Testing'){
