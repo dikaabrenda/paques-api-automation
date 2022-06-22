@@ -16,9 +16,13 @@ pipeline {
                 bat "copy env\\env.sample .env"
             }
         }
-        stage('Testing'){
+        stage('Build'){
             steps{
                 bat "npm install"
+            }
+        }
+        stage('Testing'){
+            steps{
                 bat "npm run test:api"
             }
         }
