@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Testing'){
             steps{
-                bat "npm run test:api"
+                bat "npm run test"
             }
         }
         stage('Stash Report'){
