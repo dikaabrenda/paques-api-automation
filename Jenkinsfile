@@ -35,8 +35,7 @@ pipeline {
 
     post{
         always{
-            publishHTML
-            ([
+            publishHTML([
                 allowMissing: false, 
                 alwaysLinkToLastBuild: false, 
                 keepAll: false, 
