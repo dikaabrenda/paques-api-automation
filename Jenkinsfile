@@ -24,16 +24,23 @@ pipeline {
         }
         stage('Stash Report'){
             steps{
-                publishHTML([
-                    allowMissing: false, 
-                    alwaysLinkToLastBuild: false, 
-                    keepAll: false, 
-                    reportDir: 'public', 
-                    reportFiles: 'index.html', 
-                    reportName: 'Paques-API-Automation', 
-                    reportTitles: ''
-                ])
+                echo "stash report"
             }
+        }
+    }
+
+    post{
+        always{
+            publishHTML
+            ([
+                allowMissing: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: false, 
+                reportDir: 'public', 
+                reportFiles: 'index.html', 
+                reportName: 'Paques-API-Automation', 
+                reportTitles: ''
+            ])
         }
     }
 }
