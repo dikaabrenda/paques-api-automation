@@ -39,8 +39,8 @@ pipeline {
                 allowMissing: false, 
                 alwaysLinkToLastBuild: false, 
                 keepAll: false, 
-                reportDir: '', 
-                reportFiles: 'public/index.html', 
+                reportDir: 'public', 
+                reportFiles: 'index.html', 
                 reportName: 'Paques-API-Automation', 
                 reportTitles: ''
             ])
