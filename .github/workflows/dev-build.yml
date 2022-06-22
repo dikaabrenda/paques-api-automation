@@ -2,7 +2,7 @@ name: Paques-API-Automation
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ] #master
     paths-ignore:
         - '**.md'
 

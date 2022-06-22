@@ -4,7 +4,7 @@ import auth from '../../routes/auth.api';
 import * as data from '../../data/auth/auththorization.data';
 
 describe('as a client, i want to logged in PDS Application', () => {
-  it.only('Client send a POST request "/api/login"', async () => {
+  it('Client send a POST request "/api/login"', async () => {
     await auth.POST(data.Credentials)
       .then((res) => {
         const prefix = res.data.response.profile;

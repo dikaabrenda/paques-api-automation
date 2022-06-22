@@ -20,4 +20,21 @@ describe('as a client, i want to update an user in PDS Application', () => {
         throw new Error(err.message);
       });
   });
+
+  it('Client send a PUT request using email has already exist', async () => {
+    await users.PUT(data.UPDATE_USER_EMAIL_EXIST)
+      .then((res) => {
+        assert.equal(res.status, 500)
+        assert.equal(res.data.message, 'email already exists')
+        assert.hasAllKeys(res.data, [
+          'status',
+          'code',
+          'response',
+          'message'
+        ])
+      })
+      .catch((err) => {
+        throw new Error(err.message)
+      })
+  })
 });
