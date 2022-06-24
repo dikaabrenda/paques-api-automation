@@ -21,10 +21,10 @@ describe('as a client, i want to create new user in PDS Application', () => {
   });
 
   it('Client send a POST request using user has already exist', async () => {
-    await users.POST(data.USERNAME_ALREADY_EXIST)
+    await users.POST(data.EMAIL_ALREADY_EXIST)
       .then((res) => {
         assert.equal(res.status, 500);
-        assert.equal(res.data.message, 'user_name already exists');
+        assert.equal(res.data.message, 'email already exists');
       })
       .catch((err) => {
         throw new Error(err.message);
