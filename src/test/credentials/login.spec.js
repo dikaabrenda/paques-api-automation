@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
 import auth from '../../routes/auth.api';
-import * as data from '../../data/auth/auththorization.data';
+import * as data from '../../data/auth/Auththorization.data'
 
 describe('as a client, i want to logged in PDS Application', () => {
   it('Client send a POST request "/api/login"', async () => {
