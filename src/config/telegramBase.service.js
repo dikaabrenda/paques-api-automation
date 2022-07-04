@@ -1,9 +1,8 @@
 import axios from "axios";
 import dotenv from 'dotenv';
-import { LocalStorage } from "node-localstorage";
+import console from '../helper/console.js'
 
 dotenv.config();
-global.localStorage = new LocalStorage();
 
 const telegram = axios.create({
     baseURL: process.env.TELEGRAM_URL,
@@ -17,11 +16,12 @@ const telegram = axios.create({
     ],
 
     validateStatus:
-        () => true
+        () => true,
 });
 
 telegram.interceptors.response.use(
     (res) => {
+        console(res)
         return res;
     },
     (err) => {

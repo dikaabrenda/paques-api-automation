@@ -1,0 +1,26 @@
+name: Telegram-Push-Notif
+
+on:
+  schedule:
+    - cron: '0 11 * * 1-5'
+
+jobs:
+  test:
+    name: Telegram API - ${{ matrix.node-version}} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        os: [windows-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: send telegram standup
+      run: |
+       npm run telegram
