@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha './src/test/main.spec.js' --recursive --reporter mochawesome --reporter-options html=false --timeout 180000 --es-module-specifier-resolution=node",
+    "telegram": "mocha './src/test/telegram/telegram.bot.spec.js'",
     "combine-report": "mochawesome-merge ./mochawesome-report/*.json > index.json",
     "generate-report": "marge ./index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html",
     "report": "npm run combine-report && npm run generate-report",
@@ -14,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dikaabrenda/paques-api-automation.git"
+    "url": "git+https://github.com/paquesid/paques-api-automation.git"
   },
   "author": "Dika Brenda Angkasa",
   "type": "module",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dikaabrenda/paques-api-automation/issues"
+    "url": "https://github.com/paquesid/paques-api-automation/issues"
   },
-  "homepage": "https://github.com/dikaabrenda/paques-api-automation#readme",
+  "homepage": "https://github.com/paquesid/paques-api-automation#readme",
   "dependencies": {
     "axios": "^0.24.0",
     "chai": "^4.3.4",
