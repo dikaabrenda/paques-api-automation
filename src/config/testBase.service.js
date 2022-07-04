@@ -3,7 +3,7 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import { LocalStorage } from 'node-localstorage';
 import https from 'https';
-import console from '../helper/console';
+// import console from '../helper/console';
 
 dotenv.config();
 global.localStorage = new LocalStorage('./storage');
@@ -33,7 +33,9 @@ testBase.interceptors.request.use(
     if (agent) {
       config.httpsAgent = agent;
     }
-    if (token) {
+    if (!token) {
+      throw Error('token should not empty ' + token);
+    } else {
       config.headers.Authorization = `${token}`;
     }
     return config;
@@ -43,7 +45,7 @@ testBase.interceptors.request.use(
 
 testBase.interceptors.response.use(
   (res) => {
-    console(res);
+    // console(res);
     return res;
   },
   (err) => Promise.reject(err.message),

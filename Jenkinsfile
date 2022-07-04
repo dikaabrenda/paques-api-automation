@@ -1,34 +1,49 @@
+def gv
+
 pipeline {
     agent any
     options {
         ansiColor('xterm')
     }
     stages{
+        stage('Preparation'){
+            steps {
+                gv = load('jenkins\script.groovy')
+            }
+        }
         stage('SCM'){
             steps{
-                git branch: 'qa-dikabrenda', 
-                credentialsId: '0105c6c0-ed90-4433-8ddd-3728c87f861d', 
-                url: 'https://github.com/paquesid/paques-api-automation.git'
+                script{
+                    CheckoutSCM()
+                }
             }
         }
         stage('Populate ENV'){
             steps{
-                bat "copy env\\env.sample .env"
+                script{
+                    PopulateEnv()
+                }
             }
         }
         stage('Build'){
             steps{
-                bat "npm install"
+                script{
+                    BuildDepedency()
+                }
             }
         }
         stage('Testing'){
             steps{
-                bat "npm run test"
+                script{
+                    TestApplication()
+                }
             }
         }
         stage('Stash Report'){
             steps{
-                bat "npm run report"
+                script{
+                    StashReport()
+                }
             }
         }
     }
