@@ -33,9 +33,7 @@ testBase.interceptors.request.use(
     if (agent) {
       config.httpsAgent = agent;
     }
-    if (!token) {
-      throw Error('token should not empty ' + token);
-    } else {
+    if (token) {
       config.headers.Authorization = `${token}`;
     }
     return config;
