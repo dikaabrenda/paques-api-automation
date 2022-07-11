@@ -19,6 +19,8 @@ import './pds/UserManagement/users/DeleteUsers.spec'
  * @ENDPOINT_GROUP
  */
 
+import './pds/UserManagement/groups/CreateGroups.spec'
+
 
 /**
  * @ENDPOINT_DATAQUERY
