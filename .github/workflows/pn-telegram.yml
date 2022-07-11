@@ -1,6 +1,7 @@
 name: Telegram-Push-Notif
 
 on:
+  branch: [ master ]
   schedule:
     - cron: '0 11 * * 1-5'
 
@@ -22,5 +23,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: send telegram standup
-      run: |
-       npm run telegram
+      run: npm run telegram
