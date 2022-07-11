@@ -7,7 +7,7 @@ import * as schema from '../../../../schema/pds/groups/post.group.schema'
 
 chai.use(chaiJsonSchema)
 
-describe.only('as a client, i want to create new groups in PDS Application', () => {
+describe('as a client, i want to create new groups in PDS Application', () => {
     
     it('Client send a POST request "/api/groups/add"', async () => {
         await groups.POST(data.VALID_CREATE_GROUPS)
