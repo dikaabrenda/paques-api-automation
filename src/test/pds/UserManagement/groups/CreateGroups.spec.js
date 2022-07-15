@@ -12,13 +12,21 @@ describe('as a client, i want to create new groups in PDS Application', () => {
     it('Client send a POST request "/api/groups/add"', async () => {
         await groups.POST(data.VALID_CREATE_GROUPS)
         .then((res) => {
-            const groupId = res.data.response.id
+            const groupId = res.data.response.uuid
             const groupName = res.data.response.groupname
             assert.equal(res.status, 200)
             assert.equal(res.data.response.groupdesc, 'QA Test')
             assert.jsonSchema(res.data, schema.SCHEMA_GROUP)
             localStorage.setItem('GroupsId', `${groupId}`)
             localStorage.setItem('groupName', `${groupName}`)
+        })
+    })
+
+    it.skip('Client send a POST request with groupname has already exist', async () => {
+        await groups.POST(data.GROUPSNAME_ALREADY_EXIST)
+        .then((res) => {
+            assert.equal(res.status, 500)
+            assert.equal(res.data.message, "group with name '" + localStorage.getItem('groupName') + "' already exists in this realm")
         })
     })
 
