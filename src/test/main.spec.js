@@ -20,6 +20,7 @@ import './pds/UserManagement/users/DeleteUsers.spec'
  */
 
 import './pds/UserManagement/groups/CreateGroups.spec'
+import './pds/UserManagement/groups/GetGroups.spec'
 
 
 /**
